@@ -1,0 +1,16 @@
+{% extends 'food/base.html' %} {% block body %}
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-4 text-danger">
+        Are you sure you want to delete <strong>{{ item.item_name }}</strong>?
+      </h2>
+      <form method="POST" class="d-flex gap-3">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        <a href="{% url 'food:index' %}" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
